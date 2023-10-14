@@ -49,38 +49,170 @@
 
 <body>
     <div class="northSection">
-        <div id="north" class="northLight">
-            <div id="red" class="red"></div>
-            <div id="orange" class="orange"></div>
-            <div id="green" class="green"></div>
-            <h3 id="northCount"></h3>
+        <div id="northLight" class="northLight">
+            <div id="northLightred" class="red"></div>
+            <div id="northLightorange" class="orange"></div>
+            <div id="northLightgreen" class="green"></div>
+            <h3 id="northLightCount"></h3>
         </div>
     </div>
     <div class="centerSection">
         <div id="eastLight" class="eastLight">
-            <div id="red" class="red"></div>
-            <div id="orange" class="orange"></div>
-            <div id="green" class="green"></div>
+            <div id="eastLightred" class="red"></div>
+            <div id="eastLightorange" class="orange"></div>
+            <div id="eastLightgreen" class="green"></div>
             <h3 id="eastLight"></h3>
         </div>
         <div id="westLight" class="westLight">
-            <div id="red" class="red"></div>
-            <div id="orange" class="orange"></div>
-            <div id="green" class="green"></div>
+            <div id="westLightred" class="red"></div>
+            <div id="westLightorange" class="orange"></div>
+            <div id="westLightgreen" class="green"></div>
             <h3 id="westLight"></h3>
         </div>
     </div>
     <div class="southSection">
         <div id="southLight" class="southLight">
-            <div id="red" class="red"></div>
-            <div id="orange" class="orange"></div>
-            <div id="green" class="green"></div>
+            <div id="southLightred" class="red"></div>
+            <div id="southLightorange" class="orange"></div>
+            <div id="southLightgreen" class="green"></div>
             <h3 id="southLight"></h3>
         </div>
     </div>
 </body>
 <script>
 
+let t1, t2, t3, t4;
+
+function signalOne(time, color, timerType,trafficLight) {
+    if (timerType === "t1") {
+        let t1Timer = time * 1000;
+        t1 = setInterval(() => {
+            t1Timer = t1Timer - 1000;
+            let element = document.getElementById(trafficLight+color);
+            element.innerText = t1Timer / 1000;
+            element.style.backgroundColor = color;
+            element.style.color = "white";
+            if (t1Timer === 0) {
+                element.style.backgroundColor = "unset";
+                firstTimer(color, "t1",trafficLight);
+            }
+        }, 1000);
+    }
+
+    if (timerType === "t2") {
+        let t1Timer = time * 1000;
+        t2 = setInterval(() => {
+            t1Timer = t1Timer - 1000;
+            let element = document.getElementById(trafficLight+color);
+            element.innerText = t1Timer / 1000;
+            element.style.backgroundColor = color;
+            element.style.color = "white";
+            if (t1Timer === 0) {
+                element.style.backgroundColor = "unset";
+                firstTimer(color, "t2",trafficLight);
+            }
+        }, 1000)
+    }
+
+    if (timerType === "t3") {
+        let t1Timer = time * 1000;
+        t3 = setInterval(() => {
+            t1Timer = t1Timer - 1000;
+            let element = document.getElementById(trafficLight+color);
+            element.innerText = t1Timer / 1000;
+            element.style.backgroundColor = color;
+            element.style.color = "white";
+            if (t1Timer === 0) {
+                element.style.backgroundColor = "unset";
+                firstTimer(color, "t3",trafficLight);
+            }
+        }, 1000)
+    }
+
+    if (timerType === "t4") {
+        let t1Timer = time * 1000;
+        t4 = setInterval(() => {
+            t1Timer = t1Timer - 1000;
+            let element = document.getElementById(trafficLight+color);
+            element.innerText = t1Timer / 1000;
+            element.style.backgroundColor = color;
+            element.style.color = "white";
+            if (t1Timer === 0) {
+                element.style.backgroundColor = "unset";
+                firstTimer(color, "t4",trafficLight);
+            }
+        }, 1000)
+    }
+}
+
+function firstTimer(color, timerType,trafficLight) {
+    clearSignal(color, timerType,trafficLight);
+}
+
+function clearSignal(color, timerType,trafficLight) {
+    if (timerType === "t1") {
+        clearInterval(t1);
+    }
+    if (timerType === "t2") {
+        clearInterval(t2);
+    }
+    if (timerType === "t3") {
+        clearInterval(t3);
+    }
+    if (timerType === "t4") {
+        clearInterval(t4);
+    }
+
+    if (timerType === "t1") {
+        if(color === "red"){
+            signalOne(10, "orange",timerType,"northLight");
+        }
+        if(color ==="orange"){
+            signalOne(40, "green",timerType,"northLight");
+        }
+        if(color === "green"){
+            signalOne(200, "red",timerType,"northLight");
+        }
+    }
+    if (timerType === "t2") {
+        if(color === "red"){
+            signalOne(10, "orange",timerType,"eastLight");
+        }
+        if(color ==="orange"){
+            signalOne(60, "green",timerType,"eastLight");
+        }
+        if(color === "green"){
+            signalOne(250, "red",timerType,"eastLight");
+        }
+    }
+    if (timerType === "t3") {
+        if(color === "red"){
+            signalOne(10, "orange",timerType,"westLight");
+        }
+        if(color ==="orange"){
+            signalOne(60, "green",timerType,"westLight");
+        }
+        if(color === "green"){
+            signalOne(250, "red",timerType,"westLight");
+        }
+    }
+    if (timerType === "t4") {
+        if(color === "red"){
+            signalOne(10, "orange",timerType,"southLight");
+        }
+        if(color ==="orange"){
+            signalOne(60, "green",timerType,"southLight");
+        }
+        if(color === "green"){
+            signalOne(250, "red",timerType,"southLight");
+        }
+    }
+}
+
+signalOne(40, "red","t1","northLight");
+signalOne(110, "red","t2","eastLight");
+signalOne(180, "red","t3","westLight");
+signalOne(250, "red","t4","southLight");
 </script>
 
 </html>
