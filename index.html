@@ -168,10 +168,10 @@ function clearSignal(color, timerType,trafficLight) {
             signalOne(10, "orange",timerType,"northLight");
         }
         if(color ==="orange"){
-            signalOne(40, "green",timerType,"northLight");
+            signalOne(60, "green",timerType,"northLight");
         }
         if(color === "green"){
-            signalOne(200, "red",timerType,"northLight");
+            signalOne(270, "red",timerType,"northLight");
         }
     }
     if (timerType === "t2") {
@@ -182,7 +182,7 @@ function clearSignal(color, timerType,trafficLight) {
             signalOne(60, "green",timerType,"eastLight");
         }
         if(color === "green"){
-            signalOne(250, "red",timerType,"eastLight");
+            signalOne(270, "red",timerType,"eastLight");
         }
     }
     if (timerType === "t3") {
@@ -193,7 +193,7 @@ function clearSignal(color, timerType,trafficLight) {
             signalOne(60, "green",timerType,"westLight");
         }
         if(color === "green"){
-            signalOne(250, "red",timerType,"westLight");
+            signalOne(270, "red",timerType,"westLight");
         }
     }
     if (timerType === "t4") {
@@ -204,15 +204,15 @@ function clearSignal(color, timerType,trafficLight) {
             signalOne(60, "green",timerType,"southLight");
         }
         if(color === "green"){
-            signalOne(250, "red",timerType,"southLight");
+            signalOne(270, "red",timerType,"southLight");
         }
     }
 }
 
-signalOne(40, "red","t1","northLight");
-signalOne(110, "red","t2","eastLight");
-signalOne(180, "red","t3","westLight");
-signalOne(250, "red","t4","southLight");
+signalOne(60, "red","t1","northLight");
+signalOne(130, "red","t2","eastLight");
+signalOne(200, "red","t3","westLight");
+signalOne(270, "red","t4","southLight");
 </script>
 
 </html>
